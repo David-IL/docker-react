@@ -1,0 +1,21 @@
+version: '3'
+services:
+    web:
+        build:
+            context: .  #specify folder for Dockerfile
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3000:3000"
+        volumes:
+            - /app/node_modules
+            - .:/app
+        stdin_open: true
+    tests:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes:
+            - /app/node_modules
+            - .:/app
+        # override command in specified Dockerfile
+        command: ["npm", "run", "test"]
