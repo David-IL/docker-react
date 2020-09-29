@@ -15,7 +15,7 @@ function App() {
     alt = "logo" / >
     <
     p >
-    Edit < code > src / App.js < /code> and save to reload youuouou what now???. < /
+    Edit < code > src / App.js < /code> and save to reload. I have now been changed! < /
     p > <
     a className = "App-link"
     href = "https://reactjs.org"
