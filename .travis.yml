@@ -9,3 +9,15 @@ before_install:
 script:
     # Commands to be executed to (in this case) run the test suite
     - docker run -e CI=true davidlindberg/docker-react npm run test
+
+deploy:
+    provider: elasticbeanstalk
+    region: "eu-north-1"  # same region as where you put elastic beanstalk
+    app: "docker-react"  # same name as elastic beanstalk
+    env: "DockerReact-env"  # Name of elastic beanstalk environment you created in AWS
+    bucket_name: "elasticbeanstalk-eu-north-1-432131607521"  # S3 bucket, automatically generated when you created the E.B. service
+    bucket_path: "docker-react" # path inside the S3 bucket
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
